@@ -1,0 +1,72 @@
+#task1
+
+import math
+class Shape():
+    def __init__(self, noofside):
+        self.noofside=noofside 
+        
+    def area(self):
+        pass
+    
+class Triangle(Shape):
+    def __init__(self, b, h):
+        super().__init__(3)
+        self.b = b
+        self.h = h
+        
+    def area(self):
+        return (0.5 * self.b * self.h ) 
+
+class Circle(Shape):
+    def __init__(self, r):
+        super().__init__(0) 
+        self.r = r
+    
+    def area(self):
+        return ((math.pi) * (self.r**2))
+
+def main():
+    obj1 = Triangle(10, 2)
+    obj2 = Circle(2)
+    
+    print("Triangle:", obj1.area(), "unit^2")
+    print("Circle:", obj2.area(),"unit^2")
+main()
+ 
+
+#task2
+class Employee:
+    def __init__(self, empname, empid, salary):
+        self.empname = empname
+        self.empid = empid
+        self.salary = salary
+    
+    def salaryStatus(self):
+        print(f"E_Name: {self.empname}")
+        print(f"E_ID: {self.empid}")
+        print(f"E_Salary: ${self.salary}")
+
+class BuildingManager(Employee):
+    def __init__(self, empname, empid):
+        super().__init__(empname, empid, 10000)
+
+class ProcurementManager(Employee):
+    def __init__(self, empname, empid):
+        super().__init__(empname, empid, 12000)
+
+class LogisticsManager(Employee):
+    def __init__(self, empname, empid):
+        super().__init__(empname, empid, 15000)
+
+def main():
+    employees = [
+        BuildingManager("abc", "0000"),
+        ProcurementManager("def", "1111"),
+        LogisticsManager("ghi", "2222")]
+    
+    for x in employees:
+        x.salaryStatus()
+
+main()
+
+#task3
